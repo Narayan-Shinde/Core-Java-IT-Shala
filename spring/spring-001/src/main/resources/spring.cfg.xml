@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.itshaala.Employee" name="employeeRef" scope="singleton">
+        <property name="id" value="101"/>
+        <property name="name" value="Ashish"/>
+        <property name="age" value="21"/>
+        <property name="salary" value="300000"/>
+    </bean>
+
+    <bean class="com.itshaala.dao.CourseDao" name="courseDao">
+
+    </bean>
+
+    <bean class="com.itshaala.service.CourseService" name="courseService">
+        <constructor-arg name="courseDao" ref="courseDao" />
+    </bean>
+
+    <bean class="com.itshaala.controller.CourseController" name="courseController">
+      <constructor-arg name="courseService" ref="courseService" />
+    </bean>
+
+
+
+
+
+</beans>
